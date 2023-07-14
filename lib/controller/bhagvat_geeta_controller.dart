@@ -16,9 +16,9 @@ class bhagvatGitaController extends ChangeNotifier {
   void loadJSON() async {
     String res = await rootBundle.loadString('assets/json/bhagvat_geeta.json');
 
-    List allchapter = jsonDecode(res);
+    List allChapter = jsonDecode(res);
 
-    allVerses = allchapter
+    allVerses = allChapter
         .map((e) => bhagvatGitaJsonModals.fromMap(verses: e))
         .toList();
 
