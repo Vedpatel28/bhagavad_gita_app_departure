@@ -1,9 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'dart:ui';
-
 import 'package:bhagvat_geeta_app_departure/controller/bhagvat_geeta_controller.dart';
-import 'package:bhagvat_geeta_app_departure/controller/settings_controller.dart';
 import 'package:bhagvat_geeta_app_departure/modals/bhagvat_geeta_modals.dart';
 import 'package:bhagvat_geeta_app_departure/utilse/routes_utils.dart';
 import 'package:flutter/material.dart';
@@ -82,68 +80,62 @@ class list_Page extends StatelessWidget {
                                   itemBuilder: (context, index) {
                                     bhagvatGitaJsonModals verses =
                                         provider.allVerses[fromIndex];
-                                    return Consumer<settingsController>(
-                                      builder: (context, provider, child) =>
-                                          verses.chapter_number == fromIndex + 1
-                                              ? Container(
-                                                  margin: const EdgeInsets.only(
-                                                    bottom: 10,
-                                                    left: 10,
-                                                    right: 10,
+                                    return verses.chapter_number ==
+                                            fromIndex + 1
+                                        ? Container(
+                                            margin: const EdgeInsets.only(
+                                              bottom: 10,
+                                              left: 10,
+                                              right: 10,
+                                            ),
+                                            decoration: const BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(16),
+                                              ),
+                                              image: DecorationImage(
+                                                image: NetworkImage(
+                                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNMxXFnb8AdzJZcLfPMa4GcuvsjvHffrIn2g&usqp=CAU",
+                                                ),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            child: ListTile(
+                                              leading: Text(
+                                                "${verses.chapter_number}",
+                                                style:
+                                                    GoogleFonts.playfairDisplay(
+                                                  textStyle: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: s.height * 0.035,
                                                   ),
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                      Radius.circular(16),
-                                                    ),
-                                                    image: DecorationImage(
-                                                      image: NetworkImage(
-                                                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNMxXFnb8AdzJZcLfPMa4GcuvsjvHffrIn2g&usqp=CAU",
-                                                      ),
-                                                      fit: BoxFit.cover,
-                                                    ),
+                                                ),
+                                              ),
+                                              title: Text(
+                                                verses.textHindi,
+                                                style:
+                                                    GoogleFonts.playfairDisplay(
+                                                  textStyle: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: s.height * 0.022,
                                                   ),
-                                                  child: ListTile(
-                                                    leading: Text(
-                                                      "${verses.chapter_number}",
-                                                      style: GoogleFonts
-                                                          .playfairDisplay(
-                                                        textStyle: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize:
-                                                              s.height * 0.035,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    title: Text(
-                                                      verses.textHindi,
-                                                      style: GoogleFonts
-                                                          .playfairDisplay(
-                                                        textStyle: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize:
-                                                              s.height * 0.022,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    trailing: IconButton(
-                                                      onPressed: () {
-                                                        Navigator.of(context)
-                                                            .pushNamed(
-                                                          AllRoutes.listOfVerse,
-                                                          arguments: index,
-                                                        );
-                                                      },
-                                                      icon: Icon(
-                                                        Icons.navigate_next_outlined,
-                                                        size: s.height * 0.04,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ))
-                                              : Container(),
-                                    );
+                                                ),
+                                              ),
+                                              trailing: IconButton(
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pushNamed(
+                                                    AllRoutes.listOfVerse,
+                                                    arguments: index,
+                                                  );
+                                                },
+                                                icon: Icon(
+                                                  Icons.navigate_next_outlined,
+                                                  size: s.height * 0.04,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ))
+                                        : Container();
                                   },
                                 )
                               : const Center(
@@ -164,23 +156,3 @@ class list_Page extends StatelessWidget {
     );
   }
 }
-// Container(
-//   height: s.height * 0.2,
-//   padding: const EdgeInsets.all(10),
-//   decoration: const BoxDecoration(
-//     image: DecorationImage(
-//         image: NetworkImage(
-//           "https://img.freepik.com/free-photo/brown-wooden-flooring_53876-90802.jpg",
-//         ),
-//         fit: BoxFit.cover),
-//   ),
-//   child: Text(
-//     verses.transliteration,
-//     style: GoogleFonts.playfairDisplay(
-//       textStyle: TextStyle(
-//         color: Colors.white,
-//         fontSize: s.height * 0.022,
-//       ),
-//     ),
-//   ),
-// ),

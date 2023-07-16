@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:bhagvat_geeta_app_departure/controller/bhagvat_geeta_controller.dart';
-import 'package:bhagvat_geeta_app_departure/controller/settings_controller.dart';
 import 'package:bhagvat_geeta_app_departure/modals/bhagvat_geeta_modals.dart';
 import 'package:bhagvat_geeta_app_departure/utilse/image_utilse.dart';
 import 'package:bhagvat_geeta_app_departure/utilse/routes_utils.dart';
@@ -14,7 +13,9 @@ class homePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size s = MediaQuery.of(context).size;
+    Size s = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -61,35 +62,36 @@ class homePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: s.height * 0.11),
+                  // CarouselSlider Images
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        Container(
+                        SizedBox(
                           width: s.width * 1,
                           height: s.height * 0.24,
                           child: CarouselSlider(
                             items: List.generate(
                               imagesList.length,
-                              (index) => Container(
-                                height: s.height * 0.1,
-                                width: s.width,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(imagesList[index]),
-                                    fit: BoxFit.cover,
+                                  (index) => Container(
+                                    height: s.height * 0.1,
+                                    width: s.width,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(imagesList[index]),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(s.height * 0.02),
+                                      ),
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(s.height * 0.02),
-                                  ),
-                                ),
-                              ),
                             ),
                             options: CarouselOptions(
                               height: s.height * 0.3,
                               autoPlay: true,
                               autoPlayAnimationDuration:
-                                  const Duration(milliseconds: 500),
+                              const Duration(milliseconds: 500),
                               enlargeCenterPage: true,
                               autoPlayCurve: Curves.fastLinearToSlowEaseIn,
                             ),
@@ -98,6 +100,7 @@ class homePage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  // Chapters
                   Text(
                     "Chapters",
                     style: GoogleFonts.playfairDisplay(
@@ -110,73 +113,72 @@ class homePage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: s.height * 0.02),
+                  // Index of Chapters
                   SizedBox(
                     height: s.height * 0.55,
                     child: Consumer<bhagvatGitaController>(
                       builder: (context, provider, _) {
                         return provider.allVerses.isNotEmpty
                             ? ListView.builder(
-                                itemCount: 18,
-                                itemBuilder: (context, index) {
-                                  bhagvatGitaJsonModals verses =
-                                      provider.allVerses[index];
-                                  return Consumer<settingsController>(
-                                    builder: (context, provider, child) =>
-                                        Container(
-                                      height: s.height * 0.06,
-                                      margin: const EdgeInsets.only(
-                                        bottom: 10,
-                                        left: 10,
-                                        right: 10,
-                                      ),
-                                      decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(16),
-                                        ),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNMxXFnb8AdzJZcLfPMa4GcuvsjvHffrIn2g&usqp=CAU",
-                                          ),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          SizedBox(width: s.width * 0.02),
-                                          Text(
-                                            "Chapters : ${index + 1}",
-                                            style: GoogleFonts.aBeeZee(
-                                              textStyle: TextStyle(
-                                                letterSpacing: 1,
-                                                color: Colors.white,
-                                                fontSize: s.height * 0.025,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                          const Spacer(),
-                                          IconButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pushNamed(
-                                                AllRoutes.listOfChapter,
-                                                arguments: index,
-                                              );
-                                            },
-                                            icon: Icon(
-                                              Icons.navigate_next_outlined,
-                                              color: Colors.white,
-                                              size: s.height * 0.03,
-                                            ),
-                                          ),
-                                        ],
+                          itemCount: 18,
+                          itemBuilder: (context, index) {
+                            bhagvatGitaJsonModals verses =
+                            provider.allVerses[index];
+                            return Container(
+                              height: s.height * 0.06,
+                              margin: const EdgeInsets.only(
+                                bottom: 10,
+                                left: 10,
+                                right: 10,
+                              ),
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(16),
+                                ),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNMxXFnb8AdzJZcLfPMa4GcuvsjvHffrIn2g&usqp=CAU",
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  SizedBox(width: s.width * 0.02),
+                                  Text(
+                                    "Chapters : ${index + 1}",
+                                    style: GoogleFonts.aBeeZee(
+                                      textStyle: TextStyle(
+                                        letterSpacing: 1,
+                                        color: Colors.white,
+                                        fontSize: s.height * 0.025,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  );
-                                },
-                              )
+                                  ),
+                                  const Spacer(),
+                                  IconButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pushNamed(
+                                          AllRoutes.listOfChapter,
+                                          arguments: index
+                                      );
+                                      const Text("________________------------------------------------_________________");
+                                    },
+                                    icon: Icon(
+                                      Icons.navigate_next_outlined,
+                                      color: Colors.white,
+                                      size: s.height * 0.035,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        )
                             : const Center(
-                                child: CircularProgressIndicator(),
-                              );
+                          child: CircularProgressIndicator(),
+                        );
                       },
                     ),
                   ),

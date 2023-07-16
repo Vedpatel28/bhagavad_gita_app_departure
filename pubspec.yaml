@@ -41,6 +41,7 @@ dependencies:
   flutter_staggered_grid_view:
   shared_preferences:
   flashy_tab_bar2:
+  loading_animation_widget:
 
 dev_dependencies:
   flutter_test:
