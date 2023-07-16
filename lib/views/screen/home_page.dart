@@ -3,6 +3,7 @@ import 'package:bhagvat_geeta_app_departure/controller/bhagvat_geeta_controller.
 import 'package:bhagvat_geeta_app_departure/controller/settings_controller.dart';
 import 'package:bhagvat_geeta_app_departure/modals/bhagvat_geeta_modals.dart';
 import 'package:bhagvat_geeta_app_departure/utilse/image_utilse.dart';
+import 'package:bhagvat_geeta_app_departure/utilse/routes_utils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -108,21 +109,26 @@ class homePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    height: s.height * 0.6,
+                  SizedBox(height: s.height * 0.02),
+                  SizedBox(
+                    height: s.height * 0.55,
                     child: Consumer<bhagvatGitaController>(
                       builder: (context, provider, _) {
                         return provider.allVerses.isNotEmpty
                             ? ListView.builder(
-                                itemCount: provider.allVerses.length,
+                                itemCount: 18,
                                 itemBuilder: (context, index) {
                                   bhagvatGitaJsonModals verses =
                                       provider.allVerses[index];
                                   return Consumer<settingsController>(
                                     builder: (context, provider, child) =>
                                         Container(
+                                      height: s.height * 0.06,
                                       margin: const EdgeInsets.only(
-                                          bottom: 10, left: 10, right: 10),
+                                        bottom: 10,
+                                        left: 10,
+                                        right: 10,
+                                      ),
                                       decoration: const BoxDecoration(
                                         borderRadius: BorderRadius.all(
                                           Radius.circular(16),
@@ -134,37 +140,35 @@ class homePage extends StatelessWidget {
                                           fit: BoxFit.cover,
                                         ),
                                       ),
-                                      child: ListTile(
-                                        leading: Text(
-                                          "${verses.chapter_number}",
-                                          style: GoogleFonts.playfairDisplay(
-                                            textStyle: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: s.height * 0.035,
+                                      child: Row(
+                                        children: [
+                                          SizedBox(width: s.width * 0.02),
+                                          Text(
+                                            "Chapters : ${index + 1}",
+                                            style: GoogleFonts.aBeeZee(
+                                              textStyle: TextStyle(
+                                                letterSpacing: 1,
+                                                color: Colors.white,
+                                                fontSize: s.height * 0.025,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        title: Text(
-                                          verses.textHindi,
-                                          style: GoogleFonts.playfairDisplay(
-                                            textStyle: TextStyle(
+                                          const Spacer(),
+                                          IconButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pushNamed(
+                                                AllRoutes.listOfChapter,
+                                                arguments: index,
+                                              );
+                                            },
+                                            icon: Icon(
+                                              Icons.navigate_next_outlined,
                                               color: Colors.white,
-                                              fontSize: s.height * 0.022,
+                                              size: s.height * 0.03,
                                             ),
                                           ),
-                                        ),
-                                        trailing: IconButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pushNamed(
-                                                provider.pages[2],
-                                                arguments: index);
-                                          },
-                                          icon: Icon(
-                                            Icons.navigate_next_outlined,
-                                            size: s.height * 0.04,
-                                            color: Colors.white,
-                                          ),
-                                        ),
+                                        ],
                                       ),
                                     ),
                                   );
