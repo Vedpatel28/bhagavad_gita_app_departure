@@ -22,8 +22,7 @@ https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/6a94c
 
 <img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/b072d855-f115-4443-bfd0-362698e85079" height = "350"></img>
 <img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/03d36331-c764-4dcc-9e0d-95f2b88d4702" height = "350"></img>
-<img src = "" height = "350"></img>
-<img src = "" height = "350"></img>
+<img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/9d8a5ee8-b055-4b8e-9a62-9c53d2040dfc" height = "350"></img>
 
 ## Project Objectives:
 
