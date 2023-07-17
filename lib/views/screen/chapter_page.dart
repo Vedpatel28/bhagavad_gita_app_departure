@@ -18,7 +18,16 @@ class chapter_Page extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: const Icon(Icons.list, color: Colors.transparent),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: s.height * 0.032,
+            color: Colors.white,
+          ),
+        ),
         title: Text(
           "",
           style: GoogleFonts.chakraPetch(
@@ -52,7 +61,6 @@ class chapter_Page extends StatelessWidget {
             child: Center(
               child: Consumer<bhagvatGitaController>(
                 builder: (context, provider, _) {
-                  bhagvatGitaJsonModals verses = provider.allVerses[fromIndex];
                   return Column(
                     children: [
                       SizedBox(height: s.height * 0.1),
@@ -71,17 +79,18 @@ class chapter_Page extends StatelessWidget {
                         height: s.height * 0.78,
                         child: Consumer<bhagvatGitaController>(
                             builder: (context, provider, _) {
+                          bhagvatGitaJsonModals versesl =
+                              provider.allVerses[fromIndex];
                           return provider.allVerses.isNotEmpty
                               ? ListView.builder(
                                   itemCount:
-                                      verses.chapter_number == fromIndex + 1
+                                      versesl.chapter_number == fromIndex + 1
                                           ? provider.allVerses.length
                                           : null,
                                   itemBuilder: (context, index) {
                                     bhagvatGitaJsonModals verses =
-                                        provider.allVerses[fromIndex];
-                                    return verses.chapter_number ==
-                                            fromIndex + 1
+                                        provider.allVerses[index];
+                                    return verses.chapter_number == fromIndex + 1
                                         ? Container(
                                             margin: const EdgeInsets.only(
                                               bottom: 10,
@@ -111,7 +120,7 @@ class chapter_Page extends StatelessWidget {
                                                 ),
                                               ),
                                               title: Text(
-                                                verses.textHindi[index],
+                                                verses.textHindi,
                                                 style:
                                                     GoogleFonts.playfairDisplay(
                                                   textStyle: TextStyle(

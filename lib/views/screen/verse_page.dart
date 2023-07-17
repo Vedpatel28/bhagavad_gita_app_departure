@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'dart:ui';
 
 import 'package:bhagvat_geeta_app_departure/controller/bhagvat_geeta_controller.dart';
@@ -10,21 +12,21 @@ import 'package:provider/provider.dart';
 class verse_page extends StatelessWidget {
   verse_page({super.key});
 
-  int index = 3;
-
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
-    // int fromIndex = ModalRoute.of(context)!.settings.arguments as int;
+    int fromIndex = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
-            Icons.apps_rounded,
+            Icons.arrow_back_ios,
             size: s.height * 0.032,
-            color: Colors.transparent,
+            color: Colors.white,
           ),
         ),
         title: Text(
@@ -60,7 +62,7 @@ class verse_page extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: Consumer<bhagvatGitaController>(
               builder: (context, provider, _) {
-                bhagvatGitaJsonModals verses = provider.allVerses[index];
+                bhagvatGitaJsonModals verses = provider.allVerses[fromIndex];
                 return Column(
                   children: [
                     SizedBox(height: s.height * 0.15),
@@ -106,10 +108,10 @@ class verse_page extends StatelessWidget {
                             alignment: Alignment.topRight,
                             child: IconButton(
                               onPressed: () {
-                                provider.addFavoritList(index: index);
+                                provider.addFavoritList(index: fromIndex);
                                 Navigator.of(context).pushNamed(
                                   AllRoutes.favoritePage,
-                                  arguments: index,
+                                  arguments: fromIndex,
                                 );
                               },
                               icon: Icon(
@@ -153,10 +155,10 @@ class verse_page extends StatelessWidget {
                             alignment: Alignment.topRight,
                             child: IconButton(
                               onPressed: () {
-                                provider.addFavoritList(index: index);
+                                provider.addFavoritList(index: fromIndex);
                                 Navigator.of(context).pushNamed(
                                   AllRoutes.favoritePage,
-                                  arguments: index,
+                                  arguments: fromIndex,
                                 );
                               },
                               icon: Icon(
