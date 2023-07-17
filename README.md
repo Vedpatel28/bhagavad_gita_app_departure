@@ -17,15 +17,17 @@ explore and engage with this sacred text.
 
 ### Bhagavad Gita Splash Screen
 
-https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/6a94cdf5-4acb-46f2-8897-ee93820a9a11
+https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/84b4c172-12a8-4a56-8d6e-22e9f786f53e
 
 <img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/b072d855-f115-4443-bfd0-362698e85079" height = "350"></img>
 
 ### Use CarouselSlider
 <br>
 
-<img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/03d36331-c764-4dcc-9e0d-95f2b88d4702" height = "350"></img>
-<img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/9d8a5ee8-b055-4b8e-9a62-9c53d2040dfc" height = "350"></img>
+<img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/4d3fa370-35ea-4dcc-8c47-9838dc2627a2" height = "350"></img>
+<img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/b1b6edbf-eb96-4b3a-a2fa-b220d0ec04d3" height = "350"></img>
+<img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/5190d63c-9fcd-4567-ac8d-38ffe6cd27c6" height = "350"></img>
+<img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/3bac042a-9c9c-4984-a38d-bd1b349354b6" height = "350"></img>
 
 ## Project Objectives:
 
