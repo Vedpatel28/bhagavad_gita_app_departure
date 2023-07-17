@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 class bhagvatGitaController extends ChangeNotifier {
   List<bhagvatGitaJsonModals> allVerses = [];
 
+  List favoritVerse = [];
+
   bhagvatGitaController() {
     loadJSON();
   }
@@ -22,6 +24,11 @@ class bhagvatGitaController extends ChangeNotifier {
         .map((e) => bhagvatGitaJsonModals.fromMap(verses: e))
         .toList();
 
+    notifyListeners();
+  }
+
+  addFavoritList({required int index}) {
+    favoritVerse.add(index);
     notifyListeners();
   }
 }

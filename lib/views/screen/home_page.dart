@@ -122,8 +122,7 @@ class homePage extends StatelessWidget {
                             ? ListView.builder(
                           itemCount: 18,
                           itemBuilder: (context, index) {
-                            bhagvatGitaJsonModals verses =
-                            provider.allVerses[index];
+                            bhagvatGitaJsonModals verses = provider.allVerses[index];
                             return Container(
                               height: s.height * 0.06,
                               margin: const EdgeInsets.only(
@@ -163,7 +162,6 @@ class homePage extends StatelessWidget {
                                           AllRoutes.listOfChapter,
                                           arguments: index
                                       );
-                                      const Text("________________------------------------------------_________________");
                                     },
                                     icon: Icon(
                                       Icons.navigate_next_outlined,

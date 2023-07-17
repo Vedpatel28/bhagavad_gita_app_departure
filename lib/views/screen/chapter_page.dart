@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class list_Page extends StatelessWidget {
-  const list_Page({super.key});
+class chapter_Page extends StatelessWidget {
+  const chapter_Page({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +111,7 @@ class list_Page extends StatelessWidget {
                                                 ),
                                               ),
                                               title: Text(
-                                                verses.textHindi,
+                                                verses.textHindi[index],
                                                 style:
                                                     GoogleFonts.playfairDisplay(
                                                   textStyle: TextStyle(

@@ -3,7 +3,6 @@ import 'package:bhagvat_geeta_app_departure/utilse/routes_utils.dart';
 import 'package:bhagvat_geeta_app_departure/views/screen/favorite_page.dart';
 import 'package:bhagvat_geeta_app_departure/views/screen/home_page.dart';
 import 'package:bhagvat_geeta_app_departure/views/screen/chapter_page.dart';
-import 'package:bhagvat_geeta_app_departure/views/screen/settings_page.dart';
 import 'package:bhagvat_geeta_app_departure/views/screen/splash_screen.dart';
 import 'package:bhagvat_geeta_app_departure/views/screen/verse_page.dart';
 import 'package:flutter/material.dart';
@@ -42,9 +41,8 @@ class MyApp extends StatelessWidget {
         AllRoutes.homePage: (context) => homePage(),
         AllRoutes.favoritePage: (context) => favorite_Page(),
         AllRoutes.splashScreen: (context) => bhagvat_gita_splash_page(),
-        AllRoutes.listOfChapter: (context) => list_Page(),
+        AllRoutes.listOfChapter: (context) => chapter_Page(),
         AllRoutes.listOfVerse: (context) => verse_page(),
-        AllRoutes.settingsPage: (context) => settings_page(),
       },
     );
   }

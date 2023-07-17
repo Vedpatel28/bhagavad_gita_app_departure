@@ -2,17 +2,20 @@ import 'dart:ui';
 
 import 'package:bhagvat_geeta_app_departure/controller/bhagvat_geeta_controller.dart';
 import 'package:bhagvat_geeta_app_departure/modals/bhagvat_geeta_modals.dart';
+import 'package:bhagvat_geeta_app_departure/utilse/routes_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class verse_page extends StatelessWidget {
-  const verse_page({super.key});
+  verse_page({super.key});
+
+  int index = 3;
 
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
-    int fromIndex = ModalRoute.of(context)!.settings.arguments as int;
+    // int fromIndex = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -56,24 +59,120 @@ class verse_page extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(12),
             child: Consumer<bhagvatGitaController>(
-                builder: (context, provider, _) {
-              bhagvatGitaJsonModals verses = provider.allVerses[fromIndex];
-              return Column(
-                children: [
-                  SizedBox(height: s.height * 0.1),
-                  Text(
-                    "Verse Of ${verses.chapter_number}.${verses.verses_count}",
-                    style: GoogleFonts.aBeeZee(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: s.height * 0.04,
+              builder: (context, provider, _) {
+                bhagvatGitaJsonModals verses = provider.allVerses[index];
+                return Column(
+                  children: [
+                    SizedBox(height: s.height * 0.15),
+                    Text(
+                      "Verse Of ${verses.chapter_number}.${verses.verses_count}",
+                      style: GoogleFonts.aBeeZee(
+                        textStyle: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: s.height * 0.03,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              );
-            }),
+                    SizedBox(height: s.height * 0.03),
+                    Container(
+                      height: s.height * 0.3,
+                      width: s.width,
+                      padding: const EdgeInsets.all(12),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        color: Colors.amber,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNMxXFnb8AdzJZcLfPMa4GcuvsjvHffrIn2g&usqp=CAU",
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          // SizedBox(height: s.height * 0.07),
+                          Text(
+                            verses.textHindi,
+                            style: GoogleFonts.nobile(
+                              textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: s.height * 0.028,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: IconButton(
+                              onPressed: () {
+                                provider.addFavoritList(index: index);
+                                Navigator.of(context).pushNamed(
+                                  AllRoutes.favoritePage,
+                                  arguments: index,
+                                );
+                              },
+                              icon: Icon(
+                                Icons.favorite_outline,
+                                size: s.height * 0.04,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: s.height * 0.03),
+                    Container(
+                      height: s.height * 0.3,
+                      width: s.width,
+                      padding: const EdgeInsets.all(12),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        color: Colors.amber,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNMxXFnb8AdzJZcLfPMa4GcuvsjvHffrIn2g&usqp=CAU",
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Text(
+                            verses.transliteration,
+                            style: GoogleFonts.nobile(
+                              textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: s.height * 0.022,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: IconButton(
+                              onPressed: () {
+                                provider.addFavoritList(index: index);
+                                Navigator.of(context).pushNamed(
+                                  AllRoutes.favoritePage,
+                                  arguments: index,
+                                );
+                              },
+                              icon: Icon(
+                                Icons.favorite_outline,
+                                size: s.height * 0.04,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),
