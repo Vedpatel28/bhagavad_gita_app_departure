@@ -17,7 +17,7 @@ explore and engage with this sacred text.
 
 ### Bhagavad Gita Splash Screen
 
-https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/84b4c172-12a8-4a56-8d6e-22e9f786f53e
+https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/1b410011-05c2-48cf-83aa-90e6c1e93ee2
 
 <img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/b072d855-f115-4443-bfd0-362698e85079" height = "350"></img>
 
