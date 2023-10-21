@@ -14,6 +14,7 @@ verse screens, and multi-language support, the app offers a comprehensive soluti
 explore and engage with this sacred text.
 
 <br>
+
 https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/2504b0c2-7902-4206-8d25-d8a566832532
 
 <img src = "https://github.com/Vedpatel28/bhagavad_gita_app_departure/assets/130833918/b072d855-f115-4443-bfd0-362698e85079" height = "350"></img>
